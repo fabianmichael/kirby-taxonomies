@@ -1,0 +1,1 @@
+# Taxonomies plugin for Kirby

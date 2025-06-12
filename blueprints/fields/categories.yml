@@ -1,0 +1,8 @@
+type: multiselect
+label: taxonomies.fields.categories.label
+options: query
+search: false
+query:
+  fetch: page.parent.getCategoryDefinitions(true)
+  value: "{{ block.id }}"
+  text: "{{ block.title }}"

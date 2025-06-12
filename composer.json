@@ -1,0 +1,29 @@
+{
+	"name": "fabianmichael/kirby-taxonomies",
+	"type": "kirby-plugin",
+	"version": "1.0.0",
+	"require": {
+		"getkirby/composer-installer": "^1.2"
+	},
+	"license": "MIT",
+	"autoload": {
+		"psr-4": {
+			"FabianMichael\\Taxonomies\\": "src/"
+		}
+	},
+	"authors": [
+		{
+			"name": "Fabian Michael",
+			"email": "hallo@fabianmichael.de"
+		}
+	],
+	"config": {
+		"optimize-autoloader": true,
+		"allow-plugins": {
+			"getkirby/composer-installer": true
+		}
+	},
+	"extra": {
+		"installer-name": "taxonomies"
+	}
+}
