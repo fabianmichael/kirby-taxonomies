@@ -3,6 +3,7 @@
 namespace FabianMichael\Taxonomies\BlockModels;
 
 use Kirby\Cms\Block;
+use Kirby\Cms\Page;
 use Kirby\Content\Field;
 
 class Category extends Block
@@ -31,5 +32,15 @@ class Category extends Block
 		}
 
 		return $content->get($key);
+	}
+
+	public function url(): string
+	{
+		/** @var Page */
+		$parent = $this->parent;
+
+		return $parent->url([
+			'params' => [t('taxonomies.category.slug', 'category') => $this->slug(),
+		], ]);
 	}
 }

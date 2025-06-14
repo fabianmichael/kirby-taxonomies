@@ -25,9 +25,7 @@ trait HasCategories
 
 				foreach ($this->data as $category) {
 					$html[] = Html::link(
-						$this->model->parent()->url([
-							'params' => [t('taxonomies.category.slug', 'category') => $category->slug(),
-						], ]),
+						$category->url(),
 						$category->title()
 					);
 				}
