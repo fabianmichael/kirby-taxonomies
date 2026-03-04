@@ -5,7 +5,11 @@ use FabianMichael\Taxonomies\Taxonomies;
 return function (): array {
     $columns = [];
 
-    foreach (array_keys(Taxonomies::$taxonomies) as $slug) {
+    foreach (kirby()->blueprints('taxonomies') as $slug) {
+        if ($slug === 'default') {
+            continue;
+        }
+
         $columns[] = [
             'width' => '1/2',
             'sections' =>  [

@@ -3,7 +3,6 @@
 namespace FabianMichael\Taxonomies;
 
 use FabianMichael\Taxonomies\Models\Taxonomies as TaxonomiesPage;
-use FabianMichael\Taxonomies\Models\Taxonomy;
 use FabianMichael\Taxonomies\Models\Term;
 use Kirby\Cms\App;
 use Kirby\Cms\Page;
@@ -19,15 +18,8 @@ final class Taxonomies
      */
     public static function install(): void
     {
-        static $installed = false;
-
-        if ($installed) {
-            return;
-        }
-
         static::registerTaxonomiesPage();
         static::registerTaxonomies();
-        $installed = true;
     }
 
     /**
@@ -100,7 +92,6 @@ final class Taxonomies
             $taxonomy = $page->find($slug);
 
             if (!$taxonomy) {
-                /** @var Taxonomy  */
                 $taxonomy = $kirby->impersonate('kirby', fn (): Page => $page->createChild([
                     'slug' => $slug,
                     'template' => "taxonomy",
@@ -115,6 +106,10 @@ final class Taxonomies
             $blueprints["sections/taxonomies/{$slug}-terms"] = $taxonomy->getTermsSectionBlueprint();
             $pageModels["term-{$slug}"] = Term::class;
         }
+
+        // dump($blueprints);
+        // dump($pageModels);
+        // exit;
 
         $kirby->extend([
             'blueprints' => $blueprints,
