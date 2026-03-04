@@ -19,9 +19,9 @@
   "files.associations": {
     "*.txt": "markdown"
   },
-  "standard.enable": true,
-  "standard.autoFixOnSave": true,
-  "scss.format.enable": true,
-  "scss.validate": false,
+  "[javascript, typescript]": {
+    "standard.enable": true,
+    "standard.autoFixOnSave": true
+  },
   "stylelint.validate": ["css"]
 }

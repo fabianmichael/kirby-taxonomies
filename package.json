@@ -1,10 +1,7 @@
 {
-  "scripts": {
-      "dev": "kirbyup panel/index.js --watch",
-      "build": "kirbyup panel/index.js"
-  },
   "devDependencies": {
-      "kirbyup": "latest",
-      "standard": "^17.1.2"
+    "prettier": "^3.8.1",
+    "stylelint": "^17.3.0",
+    "stylelint-config-standard": "^40.0.0"
   }
 }
