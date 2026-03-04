@@ -1,0 +1,23 @@
+title: Taxonomie
+icon: tag
+
+create:
+  status: unlisted
+
+options:
+  create: false
+  preview: false
+  delete: false
+  changeSlug: false
+  changeStatus: false
+  duplicate: false
+  changeTitle: false
+  update: false
+  move: false
+
+buttons:
+  languages: true
+
+sections:
+  terms:
+    extends: sections/terms
