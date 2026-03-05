@@ -5,6 +5,7 @@
  */
 
 use FabianMichael\Taxonomies\Models\Taxonomies;
+use FabianMichael\Taxonomies\Models\Taxonomy;
 
 return [
     /**
@@ -13,4 +14,11 @@ return [
     'taxonomies' => function (): Taxonomies {
         return taxonomies();
     },
+
+	/**
+	 * Returns a specific taxonomy page.
+	 */
+	'taxonomy' => function (string $taxonomy): Taxonomy {
+		return taxonomies()->taxonomy($taxonomy);
+	},
 ];

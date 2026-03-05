@@ -175,6 +175,9 @@ Returns the taxonomy page instance for a given taxonomy or its name.
 `$site->taxonomies(): Taxonomies`  
 Returns the taxonomies collection (equivalent to calling `taxonomies()`).
 
+`$site->taxonomy(string $taxonomy): Taxonomy`  
+Returns a specific taxonomy by its ID.
+
 ### `$page` methods
 
 `$page->taxonomy(string $name): TermsCollection`  
