@@ -42,7 +42,7 @@ class Taxonomy extends Page
     {
         return [
             'type' => 'pages',
-            'query' => "site.find('{$this->id()}').children",
+            'query' => "kirby.page('{$this->uuid()}').children",
             'empty' => I18n::translate('taxonomies.terms.empty'),
             'label' => $this->title()->toString(),
             'templates' => ["{$this->uid()}-term"],
