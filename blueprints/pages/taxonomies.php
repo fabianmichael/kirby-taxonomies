@@ -1,7 +1,5 @@
 <?php
 
-use FabianMichael\Taxonomies\Taxonomies;
-
 return function (): array {
     $columns = [];
 
