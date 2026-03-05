@@ -57,19 +57,21 @@ final class Taxonomies
         $kirby = kirby();
         $page = option('fabianmichael.taxonomies.page');
 
-        if (!$kirby->page("page://{$page}")?->exists()) {
-            // create the page
-            $kirby->impersonate(
-                'kirby',
-                fn () => $kirby->site()->createChild([
-                    'slug' => $page,
-                    'template' => 'taxonomies',
-                    'content' => [
-                        'uuid' => $page,
-                    ]
-                ])
-            );
+        if ($kirby->page("page://{$page}")?->exists()) {
+            return;
         }
+
+        // create the page
+        $kirby->impersonate(
+            'kirby',
+            fn () => $kirby->site()->createChild([
+                'slug' => $page,
+                'template' => 'taxonomies',
+                'content' => [
+                    'uuid' => $page,
+                ]
+            ])->changeStatus('unlisted')
+        );
     }
 
     /**
@@ -106,10 +108,6 @@ final class Taxonomies
             $blueprints["sections/taxonomies/{$slug}-terms"] = $taxonomy->getTermsSectionBlueprint();
             $pageModels["term-{$slug}"] = Term::class;
         }
-
-        // dump($blueprints);
-        // dump($pageModels);
-        // exit;
 
         $kirby->extend([
             'blueprints' => $blueprints,
