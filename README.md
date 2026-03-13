@@ -46,7 +46,7 @@ title: Categories
 ```
 
 > [!TIP]
-> It is advisable to use the plural form ("cartegories", NOT "category"), since every taxonomy will hold multiple terms. Pages can usually can have multiple terms assigned. E.g. a blog post, that has the categories "Frontend" and "CSS".
+> It is advisable to use the plural form ("cartegories", NOT "category"), since every taxonomy will hold multiple terms. Pages can usually have multiple terms assigned. E.g. a blog post, that has the categories "Frontend" and "CSS".
 
 This is the simplest possible taxonomy definition. The filename is the internal name and the title is displayed in the panel UI.
 
