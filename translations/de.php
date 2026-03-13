@@ -9,4 +9,5 @@ return [
     'taxonomies.terms.empty' => 'Keine Begriffe',
     'taxonomies.terms.help' => '<a {{ attr }} class="taxonomies-term-edit-link">{< icon >}<span>{{ title }} bearbeiten</span></a>',
     'taxonomies.term.changeSlug' => 'Slug ändern',
+    'taxonomies.menu.label' => 'Taxonomien',
 ];

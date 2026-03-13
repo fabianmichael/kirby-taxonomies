@@ -20,7 +20,7 @@ App::plugin('fabianmichael/taxonomies', [
             'current' => str_contains(App::instance()->request()->path()->toString(), '/site'),
         ],
         'taxonomies' => fn (App $kirby) => [
-            'label' => 'Taxonomies',
+            'label' => t('taxonomies.menu.label'),
             'icon' => 'tag',
             'menu' => true,
             'link' => Taxonomies::taxonomiesPanelPath(),
