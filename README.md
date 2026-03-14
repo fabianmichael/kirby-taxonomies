@@ -14,6 +14,9 @@ This plugin adds taxonomy management (i.e. tags, categories etc.) to [Kirby CMS]
 - 🔗 Relations to terms are based on UUIDs, so you can rename and/or translate terms later on
 - 🧰 Helper methods for filtering by slug, UUID etc.
 
+> [!NOTE]
+> This plugin is completely free and published under the MIT license. However, if you are using it in a commercial project and want to help me keep up with maintenance, please consider to **[❤️ sponsor me](https://github.com/sponsors/fabianmichael)** for securing the continued development of the plugin.
+
 ## Installation
 
 This version of the plugin requires PHP 8.4+, Kirby 5 and your Kirby installation must have UUIDs enabled. The recommended way of installing is by using Composer:
