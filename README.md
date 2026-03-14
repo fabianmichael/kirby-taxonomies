@@ -2,15 +2,17 @@
 
 This plugin adds taxonomy management (i.e. tags, categories etc.) to [Kirby CMS](https://getkirby.com)
 
-Key features:
+![Screenshot of the panel](./docs/screenshot.png)
 
-- Blueprint-based taxonomy definitions
-- Multilang support
-- Dedicated panel area for managing taxonomy terms
-- Nested terms
-- Custom fields for terms
-- Relations to terms are based on UUIDs, so you can rename and/or translate terms later on
-- Helper methods for filtering by slug, UUID etc.
+**Key features:**
+
+- 📝 Blueprint-based taxonomy definitions
+- 🌐 Multilang support
+- 🗂️ Dedicated panel area for managing taxonomy terms
+- 🌳 Nested terms
+- 🛠️ Custom fields for terms
+- 🔗 Relations to terms are based on UUIDs, so you can rename and/or translate terms later on
+- 🧰 Helper methods for filtering by slug, UUID etc.
 
 ## Installation
 
