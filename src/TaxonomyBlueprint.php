@@ -3,6 +3,7 @@
 namespace FabianMichael\Taxonomies;
 
 use Kirby\Cms\PageBlueprint;
+use Kirby\Toolkit\Str;
 
 /**
  * A custom blueprint for taxonomy pages.
@@ -31,6 +32,13 @@ class TaxonomyBlueprint extends PageBlueprint
         $props['termFields'] = $props['fields'] ?? null;
         unset($props['fields']);
 
-        return $props;
-    }
+		$props['sections'] = [
+			'terms' => [
+				'extends' => 'sections/terms',
+				'templates' => [Str::after($name, '/') . '-term'],
+			],
+		];
+
+		return $props;
+	}
 }
