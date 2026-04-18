@@ -88,6 +88,8 @@ return [
             $termsUsed->add($page->content()->get($taxonomy)->toPages());
         }
 
-        return $termsUsed->sortBy('title', 'asc');
-    }
+        return taxonomy($taxonomy)?->isSortable()
+			? $termsUsed->sortBy('num', 'asc')
+			: $termsUsed->sortBy('title', 'asc');
+    },
 ];

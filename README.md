@@ -61,7 +61,8 @@ Taxonomy blueprints support a few additional properties:
 |:-----|:-----|:--------|:------------|
 | files | `mixed` | `false` | Use boolean to add a simple files section, an array to define a custom blueprint or a string (e.g. `sections/files`) for a reusable blueprint if you want to allow file uploads (e.g. an icon) for terms in this taxonomy. |
 | hierarchical | `bool` | `false` | Enables/disables nested terms |
-| fields | `mixed` | `false` | Define custom additional fields
+| fields | `mixed` | `false` | Define custom additional fields |
+| sortable | `bool` | `false` | Make terms sortable. If `false`, terms are ordered by their title field. |
 
 > [!NOTE]
 > Taxonomies do not support advanced layout options such as tabs, columns and sections.
