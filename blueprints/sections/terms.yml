@@ -2,3 +2,4 @@ type: pages
 empty: taxonomies.terms.empty
 info: "<code>{{ page.slug }}</code>"
 sortBy: slug asc
+limit: 1000
