@@ -122,4 +122,9 @@ final class Taxonomies
     {
         return dirname(__DIR__);
     }
+
+	public static function normalizeTaxonomyFieldName(string $slug): string
+	{
+		return str_replace('-', '_', $slug);
+	}
 }

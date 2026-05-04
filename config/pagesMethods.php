@@ -1,5 +1,6 @@
 <?php
 
+use FabianMichael\Taxonomies\Taxonomies;
 use FabianMichael\Taxonomies\TermsCollection;
 use Kirby\Cms\Pages;
 use Kirby\Toolkit\A;
@@ -29,9 +30,10 @@ return [
 
         $uuids = A::wrap($uuids);
         $uuidsCount = count($uuids);
+		$fieldName = Taxonomies::normalizeTaxonomyFieldName($taxonomy);
 
-        return $this->filter(function ($page) use ($taxonomy, $uuids, $uuidsCount, $all): bool {
-            $pageUuids = $page->content()->get($taxonomy)->toTerms()->uuids();
+        return $this->filter(function ($page) use ($fieldName, $uuids, $uuidsCount, $all): bool {
+            $pageUuids = $page->content()->get($fieldName)->toTerms()->uuids();
 
             if ($all) {
                 return count(array_intersect($pageUuids, $uuids)) ===  $uuidsCount;
@@ -83,7 +85,9 @@ return [
         /** @var Pages $this */
 
         $termsUsed = TermsCollection::factory([]);
+		$taxonomy = Taxonomies::normalizeTaxonomyFieldName($taxonomy);
 
+		
         foreach ($this as $page) {
             $termsUsed->add($page->content()->get($taxonomy)->toPages());
         }
