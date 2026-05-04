@@ -7,7 +7,7 @@ return [
     'taxonomies.term.status.published.description' => 'This term is published.',
     'taxonomies.panel.label' => 'Taxonomies',
     'taxonomies.terms.empty' => 'No terms yet',
-    'taxonomies.terms.help' => '<a {{ attr }} class="taxonomies-term-edit-link">{< icon >}<span>Edit {{ title }}</span></a>',
-    'taxonomies.term.changeSlug' => 'Change Slug',
+    'taxonomies.terms.help' => '<a {{ attr }} class="taxonomies-term-edit-link">{< icon >}<span>Manage {{ title }}</span></a>',
+    'taxonomies.term.changeSlug' => 'Manage {{ title }}',
     'taxonomies.menu.label' => 'Taxonomies',
 ];
