@@ -6,6 +6,7 @@ use Kirby\Cms\Page;
 use Kirby\Cms\Pages;
 use Kirby\Content\Field;
 use Kirby\Toolkit\I18n;
+use Override;
 
 /**
  * The taxonomies page is the directory for all taxonomies.
@@ -24,6 +25,12 @@ class Taxonomies extends Page {
 	 * Removes the children from the Link field
 	 */
 	public function hasChildren(): bool
+	{
+		return false;
+	}
+
+	#[Override]
+	public function isListable(): bool
 	{
 		return false;
 	}
