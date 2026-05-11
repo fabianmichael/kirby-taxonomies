@@ -84,12 +84,20 @@ final class Taxonomies
 
         $page = static::page();
         $blueprints = [];
-        $pageModels = [];
 
         foreach ($taxonomies as $slug) {
             if ($slug === 'default') {
                 continue;
             }
+
+			// need to register the page model before the taxonomy is created,
+			// otherwise the page model will not be early enough and will
+			// cause terms to load the wrong model.
+			$kirby->extend([
+				'pageModels' => [
+					"{$slug}-term" => Term::class,
+				],
+			]);
 
             $taxonomy = $page->find($slug);
 
@@ -106,12 +114,10 @@ final class Taxonomies
             $blueprints["fields/taxonomies/{$slug}"] = $taxonomy->getFieldBlueprint();
             $blueprints["pages/{$slug}-term"] = $taxonomy->getTermBlueprint();
             $blueprints["sections/taxonomies/{$slug}-terms"] = $taxonomy->getTermsSectionBlueprint();
-            $pageModels["term-{$slug}"] = Term::class;
         }
 
         $kirby->extend([
             'blueprints' => $blueprints,
-            'pageModels' => $pageModels,
         ]);
     }
 
