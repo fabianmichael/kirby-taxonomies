@@ -29,6 +29,16 @@ class Taxonomies extends Page {
 		return false;
 	}
 
+	/**
+	 * Ensures that the taxonomies page is not indexable when this plugin is
+	 * used together with the `meta` plugin and will not end up in the XML
+	 * sitemap.
+	 */
+	public function isIndexable(): bool
+	{
+		return false;
+	}
+
 	#[Override]
 	public function isListable(): bool
 	{

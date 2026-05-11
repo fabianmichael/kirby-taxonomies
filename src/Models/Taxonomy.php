@@ -167,6 +167,15 @@ class Taxonomy extends Page
 		];
 	}
 
+	/**
+	 * Ensures that the taxonomy is not indexable when this plugin is used
+	 * together with the `meta` plugin and will not end up in the XML sitemap.
+	 */
+	public function isIndexable(): bool
+	{
+		return false;
+	}
+
 	public function isSortable(): bool
 	{
 		return $this->isSortable ??= $this->blueprint()->sortable();

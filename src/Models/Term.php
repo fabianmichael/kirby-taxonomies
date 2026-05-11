@@ -11,37 +11,46 @@ use Kirby\Cms\Page;
  */
 class Term extends Page
 {
-    /**
-     * Returns the children terms as a `TermsCollection` instance.
-     */
-    public function children(): TermsCollection
-    {
-        return $this->children ??= TermsCollection::factory($this->inventory()['children'], $this);
-    }
+	/**
+	 * Returns the children terms as a `TermsCollection` instance.
+	 */
+	public function children(): TermsCollection
+	{
+		return $this->children ??= TermsCollection::factory($this->inventory()['children'], $this);
+	}
 
-    /**
-     * Returns the parent Taxonomy of this term.
-     *
-     * @throws Exception If no parent taxonomy is found.
-     */
-    public function taxonomy(): Taxonomy
-    {
-        foreach ($this->parents() as $parent) {
-            if ($parent instanceof Taxonomy) {
-                return $parent;
-            }
-        }
+	/**
+	 * Ensures that the term is not indexable when this plugin is used
+	 * together with the `meta` plugin and will not end up in the XML sitemap.
+	 */
+	public function isIndexable(): bool
+	{
+		return false;
+	}
 
-        throw new Exception('Term has no parent taxonomy.');
-    }
+	/**
+	 * Returns the parent Taxonomy of this term.
+	 *
+	 * @throws Exception If no parent taxonomy is found.
+	 */
+	public function taxonomy(): Taxonomy
+	{
+		foreach ($this->parents() as $parent) {
+			if ($parent instanceof Taxonomy) {
+				return $parent;
+			}
+		}
 
-    /**
-     * Returns the collection of child terms, filtered by template and published status.
-     */
-    public function terms(): TermsCollection
-    {
-        return $this->children()
-            ->intendedTemplate("{$this->uid()}-term")
-            ->published();
-    }
+		throw new Exception('Term has no parent taxonomy.');
+	}
+
+	/**
+	 * Returns the collection of child terms, filtered by template and published status.
+	 */
+	public function terms(): TermsCollection
+	{
+		return $this->children()
+			->intendedTemplate("{$this->uid()}-term")
+			->published();
+	}
 }
