@@ -73,6 +73,7 @@ class Taxonomy extends Page
 		$files = $blueprint->files();
 		$hierarchical = $blueprint->hierarchical();
 		$sortable = $blueprint->sortable();
+		$icon = $blueprint->icon() ?? 'tag';
 
 		$columns = [
 			'main' => [
@@ -110,7 +111,7 @@ class Taxonomy extends Page
 
 		return [
 			'title' => 'Term',
-			'icon' => 'tag',
+			'icon' => $icon,
 			'num' => r($sortable, 'default', 'zero'),
 			'image' => [
 				'back' => 'var(--item-color-back)',
